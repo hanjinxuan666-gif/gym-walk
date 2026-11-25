@@ -1,9 +1,9 @@
-import gym
+import gymnasium as gym
 import gym_walk
 
 
 def test_p():
-    P = gym.make('BanditWalk-v0').env.P
+    P = gym.make('BanditWalk-v0').unwrapped.P
     assert P == {0: {0: [(1.0, 0, 0.0, True), (0.0, 0, 0.0, True), (0.0, 0, 0.0, True)],
                      1: [(1.0, 0, 0.0, True), (0.0, 0, 0.0, True), (0.0, 0, 0.0, True)]},
                  1: {0: [(1.0, 0, 0.0, True), (0.0, 1, 0.0, False), (0.0, 2, 1.0, True)],

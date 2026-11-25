@@ -44,6 +44,8 @@ class WalkEnv(gym.Env):
                 # Ensure state transitions stay within bounds
                 s_forward = np.clip(s - 1 if a == WEST else s + 1, 0, nS - 1)
                 s_backward = np.clip(s + 1 if a == WEST else s - 1, 0, nS - 1)
+                if s in (0, nS - 1):
+                    s_forward = s_backward = s
 
                 # Rewards for transitions
                 r_forward = 1.0 if s == nS - 2 and s_forward == nS - 1 else 0.0
